@@ -813,7 +813,7 @@ impl<'a> MessageFormatter<'a> {
 pub enum ImageStatus {
     None,
     Downloading(ImagePreviewSize),
-    Loaded(Box<dyn Protocol>),
+    Loaded(Protocol),
     Error(String),
 }
 
@@ -961,7 +961,7 @@ impl Message {
         vwctx: &ViewportContext<MessageCursor>,
         info: &'a RoomInfo,
         settings: &'a ApplicationSettings,
-    ) -> (Text<'a>, Option<(&dyn Protocol, u16, u16)>) {
+    ) -> (Text<'a>, Option<(Protocol, u16, u16)>) {
         let width = vwctx.get_width();
 
         let style = self.get_render_style(selected, settings);
@@ -1032,7 +1032,7 @@ impl Message {
         style: Style,
         hide_reply: bool,
         emoji_shortcodes: bool,
-    ) -> (Text, Option<&dyn Protocol>) {
+    ) -> (Text, Option<Protocol>) {
         if let Some(html) = &self.html {
             (html.to_text(width, style, hide_reply, emoji_shortcodes), None)
         } else {
