@@ -92,7 +92,7 @@ default-features = false
 features = ["e2e-encryption", "sqlite", "sso-login"]
 
 [dependencies.tokio]
-version = "1.24.1"
+version = "1.43.1"
 features = ["macros", "net", "rt-multi-thread", "sync", "time"]
 
 [dev-dependencies]
