@@ -2,3 +2,4 @@
 /result
 /TODO
 .direnv
+tarpaulin-report.html
